@@ -10,9 +10,9 @@ fn main() {
 
     let matches = app.get_matches();
     if matches.is_present("greet") {
-        greetMe();
+        greet_me();
     }
 }
-fn greetMe() {
+fn greet_me() {
     println!("Hello world from an arg");
 }
