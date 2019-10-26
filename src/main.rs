@@ -2,11 +2,11 @@ extern crate clap;
 use clap::App;
 use std::io::{self, Write};
 fn main() {
-    let app = App::new("hello")
+    let app = App::new("RustCalc")
         .version("0.1")
         .author("Sean Hellum")
-        .about("Hello world cli")
-        .args_from_usage("-r --double 'Say hello'
+        .about("RustCalc cli")
+        .args_from_usage("-r --double 'Multiply by 2'
                          -a --add 'add 2 numbers'");
 
     let matches = app.get_matches();
