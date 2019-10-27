@@ -1,5 +1,5 @@
 extern crate clap;
-use clap::App;
+use clap::{App,SubCommand,Arg};
 use std::io::{self, Write};
 fn main() {
     let app = App::new("RustCalc")
@@ -7,13 +7,34 @@ fn main() {
         .author("Sean Hellum")
         .about("RustCalc cli")
         .args_from_usage("-r --double 'Multiply by 2'
-                         -a --add 'add 2 numbers'");
-
-    let matches = app.get_matches();
-    if matches.is_present("double") {
+                         -a --add 'add 2 numbers'")
+        .subcommand(
+            App::new("double")
+                .about("doubles it")
+                .author("Sean Hellum")
+                .arg(
+                    Arg::with_name("num")
+                        .long("num")
+                        .takes_value(true)
+                        .multiple(false),
+                ),
+        )
+        .subcommand(
+            App::new("add")
+                .about("adds 2 nums")
+                .author("Sean Hellum")
+                .arg(
+                    Arg::with_name("num")
+                        .long("num")
+                        .takes_value(true)
+                        .multiple(false),
+                ),
+        )
+        .get_matches();
+    if app.is_present("double") {
         double_me();
     }
-    if matches.is_present("add") {
+    if app.is_present("add") {
         addNums();
     }
 }
