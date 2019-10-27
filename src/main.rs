@@ -1,5 +1,5 @@
 extern crate clap;
-use clap::{App,Arg};
+use clap::{App, Arg};
 use std::io::{self, Write};
 fn main() {
     let app = App::new("RustCalc")
@@ -44,7 +44,7 @@ fn double_me() {
     let mut line = String::new();
     std::io::stdin().read_line(&mut line).unwrap();
     let n: i32 = line.trim().parse().unwrap();
-    println!("{} doubled is {}",n,2*n);
+    println!("{} doubled is {}", n, 2 * n);
 }
 fn add_nums() {
     print!("What is the first number?: ");
@@ -57,5 +57,5 @@ fn add_nums() {
     let mut item2 = String::new();
     std::io::stdin().read_line(&mut item2).unwrap();
     let item2: i32 = item2.trim().parse().unwrap();
-    println!("The sum is {}",item1+item2);
+    println!("The sum is {}", item1 + item2);
 }
