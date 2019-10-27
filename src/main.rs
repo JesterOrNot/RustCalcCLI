@@ -6,8 +6,6 @@ fn main() {
         .version("0.1")
         .author("Sean Hellum")
         .about("RustCalc cli")
-        .args_from_usage("-r --double 'Multiply by 2'
-                         -a --add 'add 2 numbers'")
         .subcommand(
             App::new("double")
                 .about("doubles it")
