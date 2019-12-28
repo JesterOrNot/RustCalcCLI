@@ -43,8 +43,14 @@ fn double_me() {
     io::stdout().flush().unwrap();
     let mut line = String::new();
     std::io::stdin().read_line(&mut line).unwrap();
-    let n: i32 = line.trim().parse().unwrap();
-    println!("{} doubled is {}", n, 2 * n);
+    let n = line.trim().parse::<i32>();
+    match n {
+        Ok(n) => println!("{} doubled is {}", n, 2 * n),
+        Err(_err) => {
+            println!("Please provide a int");
+            double_me();
+        }
+    };
 }
 fn add_nums() {
     print!("What is the first number?: ");
