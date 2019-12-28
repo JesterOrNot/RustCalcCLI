@@ -43,9 +43,9 @@ fn double_me() {
     io::stdout().flush().unwrap();
     let mut line = String::new();
     std::io::stdin().read_line(&mut line).unwrap();
-    let n = line.trim().parse::<i32>();
+    let n = line.trim().parse::<f32>();
     match n {
-        Ok(n) => println!("{} doubled is {}", n, 2 * n),
+        Ok(n) => println!("{} doubled is {}", n, 2.0 * n),
         Err(_err) => {
             println!("Please provide a int");
             double_me();
