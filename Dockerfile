@@ -2,7 +2,7 @@ FROM rust:slim@sha256:96d44debbfd641d7873d11242e287bfba85fd21ae03e83c6eb2a0b27bf
 WORKDIR /
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
-        git=1:2.20.1-2+deb10u1 \
+        git \
     && rm -rf /var/lib/apt/lists/*
 RUN git clone "https://github.com/JesterOrNot/RustCalcCLI.git" /app
 WORKDIR /app
